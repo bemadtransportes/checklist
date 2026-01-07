@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siscov - Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="page-admin"> <header>
+        <h1>Painel S4</h1>
+        <button class="btn-sair" onclick="logout()">Sair</button>
+    </header>
+
+    <div class="admin-nav">
+        <button class="admin-tab active" data-tab="auditoria">Auditoria</button>
+        <button class="admin-tab" data-tab="frota">Frota</button>
+        <button class="admin-tab" data-tab="equipe">Equipe</button>
+    </div>
+
+    <div class="container">
+        
+        <div id="tab-auditoria" class="tab-content">
+            <h3 style="color: var(--text-light);">Conferências Recentes</h3>
+            
+            <div class="inspecao-card problema" onclick="abrirRelatorio('AB-1234')">
+                <div class="card-header-flex">
+                    <strong>AB-1234</strong>
+                    <span class="badge bg-danger">ALTERAÇÃO</span>
+                </div>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">
+                    Sd Silva • Hoje às 07:30
+                </div>
+            </div>
+
+            <div class="inspecao-card ok">
+                <div class="card-header-flex">
+                    <strong>UR-0567</strong>
+                    <span class="badge bg-success">OK</span>
+                </div>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">
+                    Cb Souza • Ontem às 18:45
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-frota" class="tab-content hidden">
+            <div class="card-header-flex">
+                <h3>Frota Ativa</h3>
+                <button class="btn btn-outline" onclick="abrirModal('modal-viatura')">+ Viatura</button>
+            </div>
+            
+            <div class="card">
+                <div class="card-header-flex">
+                    <div>
+                        <strong>AB-1234</strong><br>
+                        <small style="color: var(--text-light);">Volvo VM</small>
+                    </div>
+                    <button class="btn btn-outline" style="font-size: 0.8rem;" onclick="abrirModal('modal-materiais')">Materiais</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-equipe" class="tab-content hidden">
+            <h3>Aprovações Pendentes</h3>
+            <div class="card" id="req-1">
+                <div class="card-header-flex">
+                    <div>
+                        <strong>Sd Novato</strong><br>
+                        <small style="color: var(--text-light);">sd.novato@cbm.mg.gov.br</small>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="background-color: var(--success); margin-top: 15px;" onclick="aprovarUsuario('req-1')">Aprovar Acesso</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-relatorio" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal" onclick="fecharModal('modal-relatorio')">×</button>
+            <h3>Relatório: AB-1234</h3>
+            <hr style="border:0; border-top:1px solid #eee; margin: 15px 0;">
+            
+            <div style="margin-bottom: 15px;">
+                <p style="margin-bottom: 5px;"><strong>Lanterna de Mão</strong></p>
+                <span class="badge bg-danger">Danificado</span>
+                <p style="background: #fff3cd; padding: 10px; border-radius: 8px; margin-top: 5px; font-style: italic;">
+                    "Lente trincada e bateria fraca."
+                </p>
+            </div>
+            
+            <button class="btn btn-primary" onclick="fecharModal('modal-relatorio')">Ciente</button>
+        </div>
+    </div>
+
+    <div id="modal-viatura" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal" onclick="fecharModal('modal-viatura')">×</button>
+            <h3>Nova Viatura</h3>
+            <input type="text" placeholder="Prefixo (Ex: ABS-01)">
+            <input type="text" placeholder="Modelo / Placa">
+            <button class="btn btn-primary" onclick="alert('Salvo!'); fecharModal('modal-viatura')">Cadastrar</button>
+        </div>
+    </div>
+
+    <div id="modal-materiais" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal" onclick="fecharModal('modal-materiais')">×</button>
+            <h3>Gerir Materiais</h3>
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <input type="text" placeholder="Nome do Material" style="margin-bottom: 10px;">
+                <div style="display: flex; gap: 10px;">
+                    <select><option>Cabine</option><option>Gaveta 1</option></select>
+                    <input type="number" placeholder="Qtd" style="width: 80px;">
+                </div>
+                <button class="btn btn-primary">Adicionar</button>
+            </div>
+            <ul style="padding-left: 20px; color: var(--text-main);">
+                <li>Mangueira 1.1/2" - 4 un</li>
+                <li>Esguicho - 2 un</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script.js"></script> </body>
+</html>
+</body>
+</html>

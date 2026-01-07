@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siscov - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="page-login"> <div class="container" style="margin-top: 60px;">
+        <div class="card" style="text-align: center;">
+            <h2 style="color: var(--primary); margin-bottom: 5px;">SISCOV WEB</h2>
+            <p style="color: var(--text-light); margin-top: 0;">Conferência de Viaturas</p>
+            
+            <form id="form-login" style="margin-top: 30px;">
+                <input type="email" id="email" placeholder="Email (ex: sd.silva@bombeiros.mg)" required>
+                <input type="password" id="senha" placeholder="Senha" required>
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Entrar no Sistema</button>
+            </form>
+
+            <div style="margin-top: 20px; font-size: 0.9rem;">
+                <a href="#" style="color: var(--text-light); text-decoration: none;">Solicitar cadastro</a>
+            </div>
+            
+            <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+                <p style="font-size: 0.8rem; color: #999;">MODO DE TESTE:</p>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="simularAuth('user')" class="btn btn-outline" style="flex:1;">USER</button>
+                    <button onclick="simularAuth('admin')" class="btn btn-outline" style="flex:1; border-color:#333; color:#333;">ADMIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script.js"></script> </body>
+</html>
+</body>
+</html>

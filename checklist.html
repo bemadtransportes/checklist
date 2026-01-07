@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siscov - Conferência</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="page-checklist"> <header>
+        <h1>AB-1234</h1>
+        <button class="btn-sair" onclick="logout()">Sair</button>
+    </header>
+
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <span class="badge bg-neutral" style="font-size: 0.8rem; padding: 6px 12px;">Responsável: Sd Silva</span>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-top:0; color: var(--text-main);">1. Cabine</h3>
+            
+            <div class="item-conferencia" style="border-bottom: 1px solid #f1f5f9; padding-bottom: 20px; margin-bottom: 20px;">
+                <div class="card-header-flex">
+                    <strong style="font-size: 1rem;">Rádio HT</strong>
+                    <span class="badge bg-neutral">2 un</span>
+                </div>
+                
+                <div class="status-group">
+                    <div class="status-option selected" data-val="ok" onclick="selectStatus(this)">OK</div>
+                    <div class="status-option" data-val="falta" onclick="selectStatus(this)">Falta</div>
+                    <div class="status-option" data-val="dano" onclick="selectStatus(this)">Dano</div>
+                </div>
+
+                <textarea class="obs-box hidden" rows="2" placeholder="Descreva o problema..."></textarea>
+            </div>
+
+            <div class="item-conferencia">
+                <div class="card-header-flex">
+                    <strong style="font-size: 1rem;">Lanterna de Mão</strong>
+                    <span class="badge bg-neutral">1 un</span>
+                </div>
+                
+                <div class="status-group">
+                    <div class="status-option selected" data-val="ok" onclick="selectStatus(this)">OK</div>
+                    <div class="status-option" data-val="falta" onclick="selectStatus(this)">Falta</div>
+                    <div class="status-option" data-val="dano" onclick="selectStatus(this)">Dano</div>
+                </div>
+
+                <textarea class="obs-box hidden" rows="2" placeholder="Descreva o problema..."></textarea>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="finalizarChecklist()">Finalizar Conferência</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script.js"></script> </body>
+</html>
+</body>
+</html>
